@@ -203,7 +203,7 @@ with torch.no_grad():
     total_loss_test = 0
     total_acc_test = 0
     
-    for index, input, labels in enumerate(test_loader):
+    for index, (input, labels) in enumerate(test_loader):
         predictions = googlenet_model(input)
         
         acc = (torch.argmax(predictions, axis = 1) == labels).sum().item()
