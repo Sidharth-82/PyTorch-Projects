@@ -179,3 +179,4 @@ cython_debug/
 ImageClassification/animal-faces/
 ImageClassification/predictiontest/
 TabularClassification/rice-type-classification/
+ImageClassification/bean-leaf-lesions-classification
