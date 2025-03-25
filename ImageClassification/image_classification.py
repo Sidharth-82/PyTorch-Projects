@@ -319,7 +319,7 @@ if not os.path.exists("Pytorch Projects\\ImageClassification\\model_weights.pth"
             batch_loss_test = criterion((prediction),labels)
             total_loss_test += batch_loss_test.item()
             
-    Print(f"Accuracy Score is: {round((total_acc_test/test_dataset.shape[0])*100, 4)}%")
+    Print(f"Accuracy Score is: {round((total_acc_test/test_dataset.__len__())*100, 4)}%")
 
     #########################################################################################################################################################################################
     #$ Plotting
@@ -363,5 +363,4 @@ image = Image.open("Pytorch Projects\\ImageClassification\\predictiontest\\test1
 plt.imshow(image)
 plt.show()
 
-Print("")
 Print("Prediction for the image is: ", predict_image("Pytorch Projects\\ImageClassification\\predictiontest\\test1.jpeg"))
