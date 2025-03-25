@@ -359,8 +359,8 @@ def predict_image(image_path):
     output = torch.argmax(model(image.unsqueeze(0)), axis = 1).item()
     return label_encoder.inverse_transform([output])
 
-image = Image.open("Pytorch Projects\\ImageClassification\\predictiontest\\test1.jpeg")
+image = Image.open("Pytorch Projects\\ImageClassification\\predictiontest\\test3.jpeg")
 plt.imshow(image)
 plt.show()
 
-Print("Prediction for the image is: ", predict_image("Pytorch Projects\\ImageClassification\\predictiontest\\test1.jpeg"))
+Print("Prediction for the image is: ", predict_image("Pytorch Projects\\ImageClassification\\predictiontest\\test3.jpeg"))
