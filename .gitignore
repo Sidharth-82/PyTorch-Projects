@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+#local files
+
+ImageClassification/animal-faces/
+ImageClassification/predictiontest/
+TabularClassification/rice-type-classification/
