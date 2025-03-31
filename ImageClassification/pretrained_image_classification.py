@@ -3,7 +3,7 @@
 
 #importing dataset
 #CODE import opendatasets as od
-#CODE od.download("https://www.kaggle.com/datasets/marquis03/bean-leaf-lesions-classification", "Pytorch Projects\\ImageClassification") #Binary type dataset. Either says it is Jasmin or Gonan rice
+#CODE od.download("https://www.kaggle.com/datasets/marquis03/bean-leaf-lesions-classification", "Pytorch Projects\\ImageClassification")
 
 #import torch packages: Main Framework, NN for layers, Adam Optimizer, Dataset Class and Dataloader for creating objects
 import torch
