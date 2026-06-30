@@ -1,3 +1,9 @@
+import os
+# Work around "OMP: Error #15: libiomp5md.dll already initialized", which
+# occurs on Windows when conda's MKL (numpy/matplotlib) and the pip torch
+# wheel each ship their own OpenMP runtime. Must be set before importing torch.
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+
 import torch
 import random
 import numpy as np

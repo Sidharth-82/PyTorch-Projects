@@ -81,13 +81,45 @@ The network predicts Q-values for each possible action.
 
 ### Requirements
 
-Make sure you have Python 3.8+ installed.
+Make sure you have Python 3.10+ installed.
 
-Install dependencies:
+Install dependencies with **pinned versions** (recommended):
 
 ```bash
-pip install torch pygame numpy matplotlib
+pip install torch numpy matplotlib "pygame>=2.6" "setuptools<81"
 ```
+
+> ⚠️ **Why `setuptools<81`?**
+> `pygame` still imports the legacy `pkg_resources` module on startup.
+> `setuptools 81+` removed `pkg_resources`, which triggers a
+> `DeprecationWarning` (and eventually an `ImportError`). Pinning
+> `setuptools<81` keeps `pygame` working without the deprecation noise.
+
+Known-good version set (tested):
+
+```text
+torch==2.10.0
+numpy==2.3.4
+matplotlib==3.10.6
+pygame==2.6.1
+setuptools<81
+```
+
+Alternatively, install the actively maintained community fork
+[`pygame-ce`](https://pyga.me/), which no longer depends on
+`pkg_resources` and avoids the warning entirely:
+
+```bash
+pip uninstall pygame
+pip install pygame-ce
+```
+
+> 💡 **`OMP: Error #15: libiomp5md.dll already initialized` (Windows)**
+> This happens when conda's MKL stack (numpy/matplotlib) and the pip `torch`
+> wheel each load their own OpenMP runtime. `snake_agent.py` already sets
+> `KMP_DUPLICATE_LIB_OK=TRUE` before importing torch to work around it. To fix
+> it properly, keep numpy/matplotlib/torch from the same channel (e.g. install
+> all via conda, or all via pip).
 
 ---
 
